@@ -44,3 +44,6 @@ ckpt/*
 
 #pytest cache
 .cache/
+
+#custom files
+run_my_train.md
