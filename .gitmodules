@@ -1,0 +1,3 @@
+[submodule "resize_dataset_pascalvoc"]
+	path = resize_dataset_pascalvoc
+	url = https://github.com/carlosbabativa/resize_dataset_pascalvoc
