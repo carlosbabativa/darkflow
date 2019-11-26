@@ -47,3 +47,11 @@ ckpt/*
 
 #custom files
 run_my_train.md
+my_annotation.py
+
+#data files
+data/
+
+#vscode
+launch.json
+settings.json

@@ -1,3 +1,10 @@
+This fork adds a few features such as:
+    - [] Resize dataset
+    - [] Crop dataset
+    - [] Subcrop dataset
+    - [x] Generate anchors for dataset (LabelImg annotated)
+
+
 ## Intro
 
 [![Build Status](https://travis-ci.org/thtrieu/darkflow.svg?branch=master)](https://travis-ci.org/thtrieu/darkflow) [![codecov](https://codecov.io/gh/thtrieu/darkflow/branch/master/graph/badge.svg)](https://codecov.io/gh/thtrieu/darkflow)
