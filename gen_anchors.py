@@ -242,6 +242,8 @@ def main(args):
 
     # classes = ["snail"]
     classes = [line for line in open('labels.txt','r').read().split('\n')]
+    print('Classes found in labels.txt: ')
+    [print('\t{}'.format(line)) for line in classes]
 
     gen_image_annots(sets)
     filelist = gen_listdir_annots(data_path,sets)
@@ -259,14 +261,15 @@ def main(args):
 
     size = np.zeros((1,1,3))
     for line in lines:
-        line = line.split(' ')[0]
+        line = line.split('.jpg')[0]
+        line += '.txt'
         #line = line.replace('images','labels')
         #line = line.replace('img1','labels')
         line = line.replace('data_train','data_train_labels')        
         
 
-        line = line.replace('.jpg','.txt')
-        line = line.replace('.png','.txt')
+        # line = line.replace('.jpg','.txt')
+        # line = line.replace('.png','.txt')
         print(line)
         f2 = open(line)
         for line in f2.readlines():

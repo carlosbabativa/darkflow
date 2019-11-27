@@ -56,3 +56,6 @@ data/
 #vscode
 launch.json
 settings.json
+
+#cfgs
+cfg/tiny-yolo-voc-*
