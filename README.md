@@ -8,7 +8,8 @@ This fork adds a few features such as:
 - [x] Generate anchors for dataset (LabelImg annotated)
 
 
-# Original Repo -----------------------------------
+-----------------------------------
+# Original Repo 
 
 ## Intro
 
