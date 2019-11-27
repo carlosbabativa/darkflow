@@ -1,7 +1,7 @@
 This fork adds a few features such as:
     - [] Resize dataset
     - [] Crop dataset
-    - [] Subcrop dataset
+    - [x] Subcrop dataset
     - [x] Generate anchors for dataset (LabelImg annotated)
 
 
