@@ -48,6 +48,7 @@ ckpt/*
 #custom files
 run_my_train.md
 my_annotation.py
+resize_cmd.txt
 
 #data files
 data/
