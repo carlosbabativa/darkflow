@@ -35,6 +35,7 @@ build/
 
 #TensorBoard logs
 summary/
+logstrain/
 
 #Built graphs
 built_graph/

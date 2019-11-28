@@ -46,7 +46,7 @@ def postprocess(self, net_out, im, save = True):
 		if boxResults is None:
 			continue
 		left, right, top, bot, mess, max_indx, confidence = boxResults
-		thick = int((h + w) // 300)
+		thick = int((h + w) // 900)
 		if self.FLAGS.json:
 			resultsForJSON.append({"label": mess, "confidence": float('%.2f' % confidence), "topleft": {"x": left, "y": top}, "bottomright": {"x": right, "y": bot}})
 			continue
@@ -54,8 +54,17 @@ def postprocess(self, net_out, im, save = True):
 		cv2.rectangle(imgcv,
 			(left, top), (right, bot),
 			colors[max_indx], thick)
-		cv2.putText(imgcv, mess, (left, top - 12),
-			0, 1e-3 * h, colors[max_indx],thick//3)
+		txt = '%s(%.2f)'%(mess,confidence)
+		fontface = 0
+		fontscale = 1e-3 * h
+		thickness = thick // 6
+		txt_sz = cv2.getTextSize(txt, fontface, fontscale, thickness)
+		txt_w, txt_h = txt_sz[0][0], txt_sz[0][1]
+		txt_len = txt_w
+		txt_left = w - txt_len if (txt_len + left > w) else left
+		txt_top = txt_h if (top < 12) else top - txt_h//3
+		cv2.putText(imgcv, txt, (txt_left, txt_top),
+			fontface, fontscale, colors[max_indx],thickness)
 
 	if not save: return imgcv
 
