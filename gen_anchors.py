@@ -231,11 +231,16 @@ def main(args):
     global data_dir, cust_dir, classes
     data_dir,cust_dir = args.data_dir, args.cust_dir
     data_path = join_paths(data_dir,cust_dir)
-
+    
     sets=[\
         (data_path, 'data_train'), \
         ]
     
+    for set in sets:
+        traindir = join_paths(*set)
+        assert os.path.exists(traindir)  , 'Not able to find ' + traindir + ' - All images and annotations should be placed in that folder'
+        assert os.listdir(traindir) != [], 'No data found in ' + traindir
+
     for dtp, dir in sets:
         new = join_paths(dtp,dir+'_labels')
         os.mkdir(new) if not os.path.exists(new) else None
