@@ -17,8 +17,9 @@ parser.add_argument(
     required=True,
     help='Name of dataset (folder in datastes folder \'data\')',
 )
-
+args = parser.parse_args()
 def main(args):
+	ds_name = args.ds_name
 	ds_path = join_pth('data', ds_name)
 	dt_path = join_pth(ds_path,'data_train')
 	ds_img_pth = join_pth(ds_path,'images')
