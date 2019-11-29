@@ -2,12 +2,16 @@
 
 This fork adds a few features such as:
 
-- [ ] Resize dataset
+- [x] Resize dataset
 - [ ] Crop dataset
 - [x] Subcrop dataset
 - [x] Generate anchors for dataset (LabelImg annotated)
 
-
+Often, pictures from smartphone-captured load as horizontal on labelImg even though photos on other media visualiser (thumbnails in Android, Windos) appear as portrait. 
+Simply download CLI program [jhead](http://www.sentex.net/~mwandel/jhead/), add to path or copy into folder with images, then run 
+```
+jhead -autorot *.jpg
+```
 -----------------------------------
 # Original Repo 
 
