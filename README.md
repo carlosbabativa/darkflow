@@ -12,7 +12,53 @@ Simply download CLI program [jhead](http://www.sentex.net/~mwandel/jhead/), add 
 ```
 jhead -autorot *.jpg
 ```
------------------------------------
+
+# Resize Dataset Pascalvoc
+## This fork adds support for subcropping big images to train for small objects
+
+That is - obtain cuttings from images of larger dimensions, retaining the annotations  
+Image size at inference should match - mainly addressing lack of dataset resources  
+
+
+## CUSTOMISATIONS:  This fork adds the following custom functions when run from the darkflow fork in this profile
+
+This fork of resize_dataset_pascalvoc has been added as a submodule of darkflow  
+It is required that the datasets are in pascalvoc format (using LabelImg, for example) and that datasets are saved in the following structure  
+
+```
+darkflow
+├── darkflow/data
+│   ├── {name_yout_dataset_1}
+|       ├── data_train
+|           ├── {your_img_1}.jpg
+|           ├── {your_img_1}.xml
+│   ├── {name_yout_dataset_2}
+|       ├── data_train
+|           ├── {your_img_1}.jpg
+|           ├── {your_img_1}.xml
+|       ... and so on
+```
+
+ This form adds the following functions:
+
+ - [ ]  Resize images
+ - [ ]  Crop images
+ - [x] Sub-crop images (crops dataset into smaller samples, translating box coordinates within XML)
+      In an attempt of training Yolo for small object detection
+ - [x] Run functions from this repo on dataset within darkflow (this fork) which is typically at 'darkflow/data'
+ - [ ]  CLI Progress bar
+
+##
+
+If running within darkflow fork, you can run 
+```
+python resize_dataset_pascalvoc/main.py -p {yout_dataset_folder_name} --output {your_dataset_output_folder} --new_w 480 --new_h 640 --save_box_images 1 --do_sub_crop [all|object]
+```
+Note that the dataset folder name does not need to be a path to darkflow/data/{dataset_name}, instead, only the name of the dataset is required
+Same requirements apply for output dataset, which will appear alongside all other datasets
+
+
+---------------------------------------
 # Original Repo 
 
 ## Intro
