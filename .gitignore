@@ -14,6 +14,7 @@ sample_img/out/*
 results/
 
 # Intermediate training data
+labels.txt
 backup/
 tfnet/yolo/parse-history.txt
 tfnet/yolo/*.parsed
@@ -22,6 +23,8 @@ tfnet/yolo/*.parsed
 *.pb
 /profile
 /test.py
+cfg/
+meta/
 
 # Built cython files
 darkflow/cython_utils/*.pyd
@@ -55,8 +58,7 @@ resize_cmd.txt
 data/
 
 #vscode
-launch.json
-settings.json
+.vscode/
 
 #cfgs
 cfg/tiny-yolo-voc-*

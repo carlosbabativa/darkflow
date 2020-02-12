@@ -1,4 +1,3 @@
-pair
-single
-single_flat
-stalk
+BS
+BSSingle
+BSPair

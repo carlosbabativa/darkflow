@@ -1,5 +1,10 @@
 ## Custom Fork
 
+# Deps
+Python  3.6+?
+TF      1.12?
+Cython
+
 This fork adds a few features such as:
 
 - [x] Resize dataset
@@ -12,6 +17,21 @@ Simply download CLI program [jhead](http://www.sentex.net/~mwandel/jhead/), add 
 ```
 jhead -autorot *.jpg
 ```
+
+## Simple Training Process
+***Remember to get the framework ready before starting: ththrew's [Getting Started](#Getting started) guide***
+1. Copy your (images and XML labels) dataset into the folder /darkflow/data/{dataset_name}/data_train
+2. Overwrite the labels.txt file with a list of your own classes and count how many you have
+3. Customise the cfg file of your architecture of choice (e.g. yolo-tiny, yolov2-tiny). Minimum change required: change the number of filters in the last layer \[5*(classes+5)\]
+    e.g. if you have 3 classes, the number of filters should be: 5*(3+5) = 40
+4. Execute ``` python prep_dataset.py -d {your_dataset_name} ```
+5. Execute ``` python gen_anchors.py  -d {your_dataset_name} ```
+6. Copy the generated anchors from data/{your_dataset_name}/generated_anchors/anchors5.txt to replace your cfg's \[region\] anchors values
+7. Train your dataset:
+    ```
+    python flow --model cfg/{your_cfg_file}.cfg --load bin/{pretrained_weights}.weights --train --annotation data/{your_dataset_name}/annots --dataset data/{your_dataset_name}/images --summary logs --lr .75e-5 --batch 4 --savepb
+    ```
+
 
 # Resize Dataset Pascalvoc
 ## This fork adds support for subcropping big images to train for small objects
@@ -52,14 +72,14 @@ darkflow
 
 If running within darkflow fork, you can run 
 ```
-python resize_dataset_pascalvoc/main.py -p {yout_dataset_folder_name} --output {your_dataset_output_folder} --new_w 480 --new_h 640 --save_box_images 1 --do_sub_crop [all|object]
+python resize_dataset_pascalvoc/main.py -p {your_dataset_folder_name} --output {your_dataset_output_folder} --new_w 480 --new_h 640 --save_box_images 1 --do_sub_crop [all|object]
 ```
 Note that the dataset folder name does not need to be a path to darkflow/data/{dataset_name}, instead, only the name of the dataset is required
 Same requirements apply for output dataset, which will appear alongside all other datasets
 
 
 ---------------------------------------
-# Original Repo 
+# Original Darkflow Repo 
 
 ## Intro
 
@@ -77,6 +97,7 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 ## Dependencies
 
 Python3, tensorflow 1.0, numpy, opencv 3.
+PLUS cython and Microsoft Visual C++14.0
 
 ### Getting started
 

@@ -20,7 +20,7 @@ parser.add_argument(
 args = parser.parse_args()
 def main(args):
 	ds_name = args.ds_name
-	ds_path = join_pth('data', ds_name)
+	ds_path = join_pth(os.getcwd(),'data', ds_name)
 	dt_path = join_pth(ds_path,'data_train')
 	ds_img_pth = join_pth(ds_path,'images')
 	ds_ans_pth = join_pth(ds_path,'annots')
