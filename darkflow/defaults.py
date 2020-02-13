@@ -33,6 +33,8 @@ class argHandler(dict):
         self.define('queue', 1, 'process demo in batch')
         self.define('json', False, 'Outputs bounding box information in json format.')
         self.define('saveVideo', False, 'Records video from input video or camera')
+        self.define('steps', '[-1]', 'steps for changing learning rate')
+        self.define('scales', '[1]', 'scales for changing learning rate')
         self.define('pbLoad', '', 'path to .pb protobuf file (metaLoad must also be specified)')
         self.define('metaLoad', '', 'path to .meta file generated during --savepb that corresponds to .pb file')
 
